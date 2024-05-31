@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`smoke tests > matches snapshot on initial render 1`] = `
+<div>
+  <form
+    class="TodoForm"
+  >
+    <div
+      class="mb-3"
+    >
+      <input
+        aria-label="Title"
+        class="form-control"
+        name="title"
+        placeholder="Title"
+        value="FIXME"
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <textarea
+        aria-label="Description"
+        class="form-control TodoForm-description"
+        name="description"
+        placeholder="Description"
+      >
+        FIXME
+      </textarea>
+    </div>
+    <div
+      class="mb-3"
+    >
+      <div
+        class="w-75 d-flex justify-content-between"
+      >
+        <label
+          class="d-inline-flex"
+          for="TodoForm-priority"
+        >
+          Priority:  
+        </label>
+        <select
+          class="form-control form-control-sm d-inline-flex TodoForm-priority"
+          id="TodoForm-priority"
+          name="priority"
+        >
+          <option
+            value="1"
+          >
+            Ultra-Über
+          </option>
+          <option
+            value="2"
+          >
+            Über
+          </option>
+          <option
+            value="3"
+          >
+            Meh
+          </option>
+        </select>
+      </div>
+      <button
+        class="btn-primary btn btn-sm TodoForm-addBtn"
+      >
+        Gø!
+      </button>
+    </div>
+  </form>
+</div>
+`;

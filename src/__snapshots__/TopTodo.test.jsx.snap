@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`smoke tests > matches snapshot on initial render 1`] = `
+<div>
+  <div
+    class="Todo"
+  >
+    <div>
+      <b />
+       
+      <small>
+        (priority: 
+        )
+      </small>
+    </div>
+    <div>
+      <small />
+    </div>
+  </div>
+</div>
+`;
