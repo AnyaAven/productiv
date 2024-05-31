@@ -7,6 +7,8 @@ import EditableTodo from "./EditableTodo.jsx";
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
+ * State: none
+ *
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
 
