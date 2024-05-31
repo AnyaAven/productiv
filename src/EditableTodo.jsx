@@ -9,6 +9,8 @@ import TodoForm from "./TodoForm.jsx";
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
+ * State: isEditing (T/F)
+ *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
@@ -28,8 +30,8 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-    toggleEdit()
-    update({...formData, priority: Number(formData.priority)});
+    toggleEdit();
+    update({ ...formData, priority: Number(formData.priority) });
   }
 
   return (
