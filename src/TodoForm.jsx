@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { v4 as uuid } from 'uuid';
 
 /** Form for adding.
  *
@@ -7,16 +7,31 @@ import { useState } from "react";
  * - initialFormData
  * - handleSave: function to call in parent.
  *
+ * State:
+ * formData: { title, description, priority (num) }
+ *
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm() {
+function TodoForm({initialFormData, handleSave}) {
+  const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
-  function handleChange(evt) { }
+  function handleChange(evt) {
+    const {name, value } = evt.target;
+
+    setFormData(formData => ({
+      ...formData,
+      [name]: value
+    }));
+   }
 
   /** Call parent function and clear form. */
-  function handleSubmit(evt) { }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    handleSave({...formData, priority: Number(formData.priority)});
+    setFormData({title: "", description: "", priority: ""})
+  }
 
   return (
       <form className="TodoForm" onSubmit={handleSubmit}>
