@@ -13,13 +13,13 @@ import { v4 as uuid } from 'uuid';
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({ initialFormData = {
-  title: "grocery",
-  description: "spinach",
-  priority: 1
-
-}, handleSave }) {
-  //FIXME: remove the fake intial form data
+function TodoForm({
+  initialFormData = {
+  title: "",
+  description: "",
+  priority: ""
+  },
+  handleSave }) {
 
   const [formData, setFormData] = useState(initialFormData);
 
