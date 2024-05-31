@@ -1,16 +1,7 @@
-import { test, expect, describe, beforeAll, afterAll, vi } from "vitest";
+import { test, expect, describe, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
 import TodoForm from "./TodoForm.jsx";
-import { TODOS, testFunction } from "./_testCommon.js";
-import * as testCommon from "./_testCommon.js";
-
-beforeAll(function () {
-  vi.spyOn(testCommon, "testFunction");
-});
-
-afterAll(function () {
-  vi.restoreAllMocks();
-});
+import { TODOS } from "./_testCommon.js";
 
 describe("smoke tests", function () {
   test("renders without crashing", function () {
@@ -24,40 +15,40 @@ describe("smoke tests", function () {
 
 describe("works", function () {
   test("updating the Todo item", function () {
-    testCommon.testFunction.mockReturnValue();
+    const mockHandleSave = vi.fn();
     const { container } = render(
       <TodoForm
         initialFormData={TODOS[0]}
-        handleSave={testFunction}
+        handleSave={mockHandleSave}
       />
     );
 
     fireEvent.input(description, { target: { value: "spinach" } });
 
-    expect(testFunction).toHaveBeenCalledTimes(0);
+    expect(mockHandleSave).toHaveBeenCalledTimes(0);
     //User interacts with form
     fireEvent.click(container.querySelector(".TodoForm-Button"));
     //Test that the cb sent to the form is called,
-    expect(testFunction).toHaveBeenCalledTimes(1);
+    expect(mockHandleSave).toHaveBeenCalledTimes(1);
   });
 
   test("creating a Todo item", function () {
-    testCommon.testFunction.mockReturnValue();
+    const mockHandleSave = vi.fn();
     const { container } = render(
       <TodoForm
         initialFormData={{ title: "", priority: "", description: "" }}
-        handleSave={testFunction}
+        handleSave={mockHandleSave}
       />
     );
     fireEvent.input(title, { target: { value: "Sleep" } });
     fireEvent.input(priority, { target: { value: 1 } });
     fireEvent.input(description, { target: { value: "sleep well" } });
 
-    expect(testFunction).toHaveBeenCalledTimes(0);
+    expect(mockHandleSave).toHaveBeenCalledTimes(0);
     //User interacts with form
     fireEvent.click(container.querySelector(".TodoForm-Button"));
     //Test that the cb sent to the form is called,
-    expect(testFunction).toHaveBeenCalledTimes(1);
+    expect(mockHandleSave).toHaveBeenCalledTimes(1);
   });
 
   test("handleChange callback works", function () {
