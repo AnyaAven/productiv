@@ -10,7 +10,7 @@ import TopTodo from "./TopTodo.jsx";
  * - initialTodos: possible array of [ todo, ... ]
  *
  * State:
- * - todos: array of [ todo, ... ]
+ * - todos: array of [ todo, ... ] //FIXME: should default to empty []
  *
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
