@@ -18,6 +18,8 @@ import TopTodo from "./TopTodo.jsx";
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
 
+  console.log("!!!!TODOS", todos, todos.length);
+
   /** add a new todo to list */
   function create(newTodo) {
   }
