@@ -18,10 +18,10 @@ import TopTodo from "./TopTodo.jsx";
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
 
-  console.log("!!!!TODOS", todos, todos.length);
-
   /** add a new todo to list */
   function create(newTodo) {
+    console.log("create", newTodo);
+    newTodo.id = uuid();
     setTodos(curr => [...curr, newTodo]);
   }
 
@@ -30,16 +30,16 @@ function TodoApp({ initialTodos }) {
     setTodos(todos.map(
       todo =>
         todo.id === updatedTodo.id
-        ? updatedTodo
-        : todo
-    ))
+          ? updatedTodo
+          : todo
+    ));
   }
 
   /** delete a todo by id */
   function remove(id) {
     setTodos(todos.filter(
       todo => todo.id !== id
-    ))
+    ));
   }
 
   return (
