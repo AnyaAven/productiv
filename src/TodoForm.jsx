@@ -17,7 +17,7 @@ function TodoForm({
   initialFormData = {
   title: "",
   description: "",
-  priority: ""
+  priority: 1
   },
   handleSave }) {
 
