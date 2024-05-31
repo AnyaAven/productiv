@@ -15,9 +15,9 @@ import { v4 as uuid } from 'uuid';
 
 function TodoForm({
   initialFormData = {
-  title: "",
-  description: "",
-  priority: 1
+    title: "",
+    description: "",
+    priority: 1
   },
   handleSave }) {
 
@@ -37,7 +37,7 @@ function TodoForm({
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSave({ ...formData, priority: Number(formData.priority) });
-    setFormData({ title: "", description: "", priority: "" });
+    setFormData(initialFormData);
   }
 
   return (
