@@ -23,19 +23,46 @@ describe("smoke tests", function () {
 });
 
 describe("works", function () {
-  test("calls it's handleSave cb", function () {
+  test("updating the Todo item", function () {
     testCommon.testFunction.mockReturnValue();
     const { container } = render(
       <TodoForm
-        initialFormData={ "dataTODO:" }
-        handleSave={testFunction} //TODO: What is the property name of this
+        initialFormData={TODOS[0]}
+        handleSave={testFunction}
       />
     );
 
-    //User interacts with form
+    fireEvent.input(description, { target: { value: "spinach" } });
 
+    expect(testFunction).toHaveBeenCalledTimes(0);
+    //User interacts with form
+    fireEvent.click(container.querySelector(".TodoForm-Button"));
     //Test that the cb sent to the form is called,
-    expect(testCommon.testFunction).toHaveBeenCalledTimes(1);
+    expect(testFunction).toHaveBeenCalledTimes(1);
+  });
+
+  test("creating a Todo item", function () {
+    testCommon.testFunction.mockReturnValue();
+    const { container } = render(
+      <TodoForm
+        initialFormData={{ title: "", priority: "", description: "" }}
+        handleSave={testFunction}
+      />
+    );
+    fireEvent.input(title, { target: { value: "Sleep" } });
+    fireEvent.input(priority, { target: { value: 1 } });
+    fireEvent.input(description, { target: { value: "sleep well" } });
+
+    expect(testFunction).toHaveBeenCalledTimes(0);
+    //User interacts with form
+    fireEvent.click(container.querySelector(".TodoForm-Button"));
+    //Test that the cb sent to the form is called,
+    expect(testFunction).toHaveBeenCalledTimes(1);
+  });
+
+  test("handleChange callback works", function () {
+    //TODO: how do write a test for handleChange ??
   });
 
 });
+
