@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { v4 as uuid } from 'uuid';
 
 /** Form for adding.
  *
@@ -8,7 +7,7 @@ import { v4 as uuid } from 'uuid';
  * - handleSave: function to call in parent.
  *
  * State:
- * formData: { title, description, priority (num) }
+ * formData: { title, description, priority }
  *
  * { TodoApp, EditableTodo } -> TodoForm
  */
@@ -17,7 +16,7 @@ function TodoForm({
   initialFormData = {
     title: "",
     description: "",
-    priority: 1
+    priority: "1" //Note: form data comes in as a string so this is more accurate representation
   },
   handleSave }) {
 
