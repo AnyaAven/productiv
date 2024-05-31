@@ -23,7 +23,7 @@ test("has props", function () {
     />
   );
 
-  const item = container.querySelector("Todo");
+  const item = container.querySelector(".Todo");
 
   expect(item).toHaveTextContent("Grocery List");
   expect(item).toHaveTextContent("priority: 1");
